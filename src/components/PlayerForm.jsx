@@ -23,23 +23,22 @@ function PlayerForm(props) {
 		e.preventDefault();
 
 		if (data.player1.trim().length === 0)
-			return setErrors({
-				player1: requiredError,
-			});
+			return setErrors({ player1: requiredError });
 
 		if (data.player2.trim().length === 0)
-			return setErrors({
-				player2: requiredError,
-			});
+			return setErrors({ player2: requiredError });
 
 		if (data.player1 === data.player2)
-			return setErrors({
-				player2: sameNameError,
-			});
+			return setErrors({ player2: sameNameError });
 
 		setErrors({});
 
-		navigate("/startGame/player1", { state: { ...data } });
+		navigate("/startGame/player1", {
+			state: {
+				player1: { name: data.player1 },
+				player2: { name: data.player2 },
+			},
+		});
 	}
 
 	return (

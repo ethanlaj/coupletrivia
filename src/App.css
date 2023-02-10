@@ -9,3 +9,11 @@ form {
 .inputContainer {
 	margin-bottom: 1em;
 }
+
+.answer {
+	width: 25%;
+}
+
+.removeQuestion {
+	color: red;
+}

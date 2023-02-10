@@ -15,7 +15,7 @@ const InputGroup = (props) => {
 				value={value}
 			/>
 			{error && (
-				<div class="alert alert-danger" role="alert">
+				<div className="alert alert-danger" role="alert">
 					{error}
 				</div>
 			)}

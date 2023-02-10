@@ -1,18 +1,18 @@
 {
 	"Food": [
-		"Favorite snack",
-		"Favorite appetizer",
-		"Favorite breakfast entree",
-		"Favorite lunch entree",
-		"Favorite dinner entree"
+		"Favorite snack?",
+		"Favorite appetizer?",
+		"Favorite breakfast entree?",
+		"Favorite lunch entree?",
+		"Favorite dinner entree?"
 	],
 	"Travel": [
-		"Dream city to visit",
-		"Favorite vacation spot"
+		"Dream city to visit?",
+		"Favorite vacation spot?"
 	],
 	"Future": [
-		"Dream city to live in",
-		"Dream car to own",
-		"Number of children wanted"
+		"Dream city to live in?",
+		"Dream car to own?",
+		"Number of children wanted?"
 	]
 }
