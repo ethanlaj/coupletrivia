@@ -7,8 +7,14 @@ import SelectedQuestions from "./SelectedQuestions";
 function QuestionForm(props) {
 	const location = useLocation();
 	const navigate = useNavigate();
+
 	const player1 = location.state.player1;
 	const player2 = location.state.player2;
+	const currentPlayer = player1.questions ? player2 : player1;
+	const otherPlayer = player1.questions ? player1 : player2;
+	const nextLocation = player1.questions
+		? "/play/player1"
+		: "/startGame/player2";
 
 	const [selectedQuestions, setQuestions] = useState([]);
 	const [category, changeCategory] = useState("");
@@ -44,39 +50,25 @@ function QuestionForm(props) {
 
 		changeCategory("");
 
-		if (!player1.questions) {
-			player1.questions = selectedQuestions;
-			setQuestions([]);
+		currentPlayer.questions = selectedQuestions;
+		setQuestions([]);
 
-			navigate("/startGame/player2", {
-				replace: true,
-				state: {
-					player1,
-					player2,
-				},
-			});
-		} else {
-			player2.questions = selectedQuestions;
-			setQuestions([]);
-
-			navigate("/play/player1", {
-				replace: true,
-				state: {
-					player1,
-					player2,
-				},
-			});
-		}
+		navigate(nextLocation, {
+			replace: true,
+			state: {
+				player1,
+				player2,
+			},
+		});
 	}
 
 	return (
 		<div>
-			<h1>Question Selection</h1>
+			<h1>{currentPlayer.name}'s Turn</h1>
 			<p>
-				{!player1.questions ? player1.name : player2.name}, pick 5
-				questions for {!player1.questions ? player2.name : player1.name}{" "}
-				to answer about you. Try to challenge them, and don't let them
-				see your answers!
+				{currentPlayer.name}, pick 5 questions for {otherPlayer.name} to
+				answer about you. Try to challenge them, and don't let them see
+				your answers!
 			</p>
 
 			{selectedQuestions.length > 0 && (

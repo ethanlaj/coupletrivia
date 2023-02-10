@@ -17,3 +17,11 @@ form {
 .removeQuestion {
 	color: red;
 }
+
+.resultContainer {
+	margin-bottom: 1em;
+}
+
+.resultContainer p {
+	margin: 0;
+}
