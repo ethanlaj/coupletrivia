@@ -1,12 +1,12 @@
 import React, { Fragment, useState } from "react";
+import { toast } from "react-toastify";
 import CategorySelect from "./CategorySelect";
 import questions from "../questions.json";
 import QuestionsTable from "./QuestionsTable";
 import QuestionModal from "./QuestionModal";
 
-function QuestionBank({ add, selectedQuestions }) {
+function QuestionBank({ add, selectedQuestions, category, changeCategory }) {
 	const categories = Object.keys(questions);
-	const [category, changeCategory] = useState("");
 
 	// States used in the modal
 	const [showModal, setShowModal] = useState(false);
@@ -46,6 +46,9 @@ function QuestionBank({ add, selectedQuestions }) {
 	}
 
 	function openModal(question) {
+		if (selectedQuestions.length >= 5)
+			return toast.error("Maximum number of questions is 5!");
+
 		const newData = { ...data };
 
 		newData.question = question;

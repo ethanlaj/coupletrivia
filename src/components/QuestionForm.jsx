@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import QuestionBank from "./QuestionBank";
 import { toast } from "react-toastify";
@@ -11,6 +11,11 @@ function QuestionForm(props) {
 	const player2 = location.state.player2;
 
 	const [selectedQuestions, setQuestions] = useState([]);
+	const [category, changeCategory] = useState("");
+
+	useEffect(() => {
+		setQuestions(selectedQuestions);
+	}, [selectedQuestions]);
 
 	function addQuestion(question, answer) {
 		if (selectedQuestions.length >= 5)
@@ -36,6 +41,8 @@ function QuestionForm(props) {
 			return toast.error(
 				"You must select 5 questions before continuing!"
 			);
+
+		changeCategory("");
 
 		if (!player1.questions) {
 			player1.questions = selectedQuestions;
@@ -83,6 +90,8 @@ function QuestionForm(props) {
 			<QuestionBank
 				add={addQuestion}
 				selectedQuestions={selectedQuestions}
+				category={category}
+				changeCategory={changeCategory}
 			></QuestionBank>
 		</div>
 	);

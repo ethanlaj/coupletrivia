@@ -52,6 +52,7 @@ function PlayerForm(props) {
 					error={errors["player1"]}
 					handleChange={handleChange}
 				></InputGroup>
+
 				<InputGroup
 					id={"player2"}
 					label={"Player 2 Name"}
