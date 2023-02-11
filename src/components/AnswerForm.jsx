@@ -12,7 +12,13 @@ function AnswerForm(props) {
 	const otherPlayer = player1.answers ? player1 : player2;
 	const nextLocation = player1.answers ? "/results" : "/play/player2";
 
-	const [data, setData] = useState({});
+	const [data, setData] = useState({
+		answer0: "",
+		answer1: "",
+		answer2: "",
+		answer3: "",
+		answer4: "",
+	});
 	const [errors, setErrors] = useState({});
 
 	const questionsToAnswer = !player1.answers
@@ -20,13 +26,19 @@ function AnswerForm(props) {
 		: player1.questions;
 
 	useEffect(() => {
-		let questionsClone =
-			"{" +
-			questionsToAnswer.map((q) => `"${q.question}": ""`).join(", ") +
-			"}";
-		questionsClone = JSON.parse(questionsClone);
+		// let questionsClone =
+		// 	"{" +
+		// 	questionsToAnswer.map((q) => `"${q.question}": ""`).join(", ") +
+		// 	"}";
+		// questionsClone = JSON.parse(questionsClone);
 
-		setData(questionsClone);
+		setData({
+			answer0: "",
+			answer1: "",
+			answer2: "",
+			answer3: "",
+			answer4: "",
+		});
 		setErrors({});
 	}, [questionsToAnswer]);
 
@@ -46,14 +58,14 @@ function AnswerForm(props) {
 			if (answer.trim().length === 0)
 				return setErrors({ [id]: "Answer is required!" });
 		}
-
 		setErrors({});
 
+		const keys = Object.keys(data);
 		currentPlayer.answers = [];
-		for (let answer of Object.entries(data))
+		for (let i = 0; i < keys.length; i++)
 			currentPlayer.answers.push({
-				question: answer[0],
-				answer: answer[1],
+				question: questionsToAnswer[i].question,
+				answer: data[keys[i]],
 			});
 
 		navigate(nextLocation, {
@@ -77,11 +89,11 @@ function AnswerForm(props) {
 			<form onSubmit={handleSubmit}>
 				{questionsToAnswer.map((q, index) => (
 					<InputGroup
-						key={q.question}
-						id={q.question}
+						key={`answer${index}`}
+						id={`answer${index}`}
 						label={q.question}
-						value={data[q.question]}
-						error={errors[q.question]}
+						value={data[`answer${index}`]}
+						error={errors[`answer${index}`]}
 						handleChange={handleChange}
 					></InputGroup>
 				))}
