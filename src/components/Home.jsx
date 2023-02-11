@@ -11,8 +11,9 @@ const Home = () => {
 	}
 
 	return (
-		<div className="App">
-			<p>Welcome to Couple Trivia!</p>
+		<div className="beautyContainer">
+			<h3>Welcome to Couple Trivia!</h3>
+			<p>How well do you know your partner?</p>
 			<button className="btn btn-primary" onClick={start}>
 				Start
 			</button>

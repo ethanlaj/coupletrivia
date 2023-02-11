@@ -79,10 +79,15 @@ function QuestionBank({ add, selectedQuestions, category, changeCategory }) {
 				handleSubmit={handleSubmit}
 			></QuestionModal>
 
-			<h2>Question Bank</h2>
-			<button className="btn btn-primary" onClick={() => openModal("")}>
-				Add Custom Question
-			</button>
+			<div className="my-2 d-flex justify-content-between align-items-center w100">
+				<h2>Question Bank</h2>
+				<button
+					className="btn btn-primary"
+					onClick={() => openModal("")}
+				>
+					Add Custom Question
+				</button>
+			</div>
 
 			<CategorySelect
 				onChange={handleCategoryChange}

@@ -63,8 +63,8 @@ function QuestionForm(props) {
 	}
 
 	return (
-		<div>
-			<h1>{currentPlayer.name}'s Turn</h1>
+		<div className="beautyContainer w50">
+			<h1>{currentPlayer.name}'s Turn!</h1>
 			<p>
 				{currentPlayer.name}, pick 5 questions for {otherPlayer.name} to
 				answer about you. Try to challenge them, and don't let them see

@@ -1,26 +1,49 @@
-import React, { Fragment } from "react";
-import { useLocation } from "react-router-dom";
+import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import Result from "./Result";
 
 function Results(props) {
 	const location = useLocation();
+	const navigate = useNavigate();
 	const player1 = location.state.player1;
 	const player2 = location.state.player2;
 
 	calculateScore(player1, player2.questions);
 	calculateScore(player2, player1.questions);
 
+	const winner =
+		player1.score > player2.score
+			? player1
+			: player2.score > player1.score
+			? player2
+			: null;
+
+	function handleClick() {
+		navigate("/", {
+			replace: true,
+		});
+	}
+
 	return (
-		<Fragment>
-			<h1>Questions About {player1.name}</h1>
+		<div className="beautyContainer w50">
+			<div className="my-2 d-flex justify-content-between align-items-center w100">
+				{winner && <h1>{winner.name + " Wins!"}</h1>}
+				{!winner && <h1>{"It's a tie!"}</h1>}
+				<button onClick={handleClick} className="btn btn-primary">
+					Play Again
+				</button>
+			</div>
+
+			<h2>Questions About {player1.name}</h2>
 			{player1.questions.map((q) => (
 				<Result question={q}></Result>
 			))}
-			<h1>Questions About {player2.name}</h1>
+
+			<h2>Questions About {player2.name}</h2>
 			{player2.questions.map((q) => (
 				<Result question={q}></Result>
 			))}
-		</Fragment>
+		</div>
 	);
 }
 export default Results;
@@ -36,6 +59,7 @@ function calculateScore(playerObject, questionsObject) {
 			.toLowerCase();
 
 		if (answer === guess) playerObject.score++;
+		question.correct = answer === guess;
 		question.guess = guess;
 		question.guesser = playerObject.name;
 	}

@@ -66,8 +66,8 @@ function AnswerForm(props) {
 	}
 
 	return (
-		<div>
-			<h1>{currentPlayer.name}'s Turn</h1>
+		<div className="beautyContainer w50">
+			<h1>{currentPlayer.name}'s Turn!</h1>
 			<p>
 				{currentPlayer.name}, time to answer questions about{" "}
 				{otherPlayer.name}! Do you know them well enough to get all of
@@ -85,7 +85,7 @@ function AnswerForm(props) {
 						handleChange={handleChange}
 					></InputGroup>
 				))}
-				<button>Submit</button>
+				<button className="btn btn-primary">Submit</button>
 			</form>
 		</div>
 	);

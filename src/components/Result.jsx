@@ -2,8 +2,12 @@ import React from "react";
 
 function Result({ question: q }) {
 	return (
-		<div className="resultContainer">
-			<p>Question: {q.question}</p>
+		<div
+			className={
+				"resultContainer " + (q.correct ? "correct" : "incorrect")
+			}
+		>
+			<h4>{q.question}</h4>
 			<p>
 				{q.guesser}'s Answer: {q.guess}
 			</p>

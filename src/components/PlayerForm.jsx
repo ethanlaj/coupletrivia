@@ -42,7 +42,7 @@ function PlayerForm(props) {
 	}
 
 	return (
-		<div>
+		<div className="beautyContainer w35">
 			<h1>Player Information</h1>
 			<form onSubmit={handleSubmit}>
 				<InputGroup

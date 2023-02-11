@@ -15,7 +15,10 @@ function SelectedQuestions({ selectedQuestions, handleSubmit, remove }) {
 				questions={selectedQuestions}
 			></QuestionsTable>
 
-			<button onClick={handleSubmit} className="btn btn-primary">
+			<button
+				onClick={handleSubmit}
+				className="mb-4 btn btn-primary w100"
+			>
 				Done
 			</button>
 		</Fragment>
