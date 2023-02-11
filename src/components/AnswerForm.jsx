@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import InputGroup from "./common/InputGroup";
+import InputGroup from "./InputGroup";
 
 function AnswerForm(props) {
 	const location = useLocation();

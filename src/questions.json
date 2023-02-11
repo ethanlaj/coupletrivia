@@ -6,13 +6,30 @@
 		"Favorite lunch entree?",
 		"Favorite dinner entree?"
 	],
-	"Travel": [
-		"Dream city to visit?",
-		"Favorite vacation spot?"
+	"Entertainment": [
+		"Current hobby?",
+		"Favorite vacation spot?",
+		"Favorite movie?",
+		"Favorite TV show?",
+		"Favorite actor?",
+		"Favorite artist?",
+		"Favorite song?",
+		"Favorite sport?"
+	],
+	"Personal": [
+		"Biggest fear?",
+		"Biggest pet peeve?",
+		"Favorite animal?",
+		"Favorite color?",
+		"Favorite holiday?",
+		"Favorite season?",
+		"Astrological sign?"
 	],
 	"Future": [
 		"Dream city to live in?",
+		"Dream city to visit?",
 		"Dream car to own?",
+		"Dream job?",
 		"Number of children wanted?"
 	]
 }

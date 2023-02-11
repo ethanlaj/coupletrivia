@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import InputGroup from "./common/InputGroup";
+import InputGroup from "./InputGroup";
 
 const requiredError = "Player name is required!";
 const sameNameError = "Player names must be unique!";
