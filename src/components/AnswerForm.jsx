@@ -86,7 +86,7 @@ function AnswerForm(props) {
 				the answers correct?!
 			</p>
 
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} autoComplete="off">
 				{questionsToAnswer.map((q, index) => (
 					<InputGroup
 						key={`answer${index}`}
