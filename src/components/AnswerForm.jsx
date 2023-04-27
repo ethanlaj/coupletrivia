@@ -21,9 +21,7 @@ function AnswerForm(props) {
 	});
 	const [errors, setErrors] = useState({});
 
-	const questionsToAnswer = !player1.answers
-		? player2.questions
-		: player1.questions;
+	const questionsToAnswer = !player1.answers ? player2.questions : player1.questions;
 
 	useEffect(() => {
 		// let questionsClone =
@@ -55,8 +53,7 @@ function AnswerForm(props) {
 		e.preventDefault();
 
 		for (let [id, answer] of Object.entries(data)) {
-			if (answer.trim().length === 0)
-				return setErrors({ [id]: "Answer is required!" });
+			if (answer.trim().length === 0) return setErrors({ [id]: "Answer is required!" });
 		}
 		setErrors({});
 
@@ -78,12 +75,11 @@ function AnswerForm(props) {
 	}
 
 	return (
-		<div className="beautyContainer w50">
+		<div className="beautyContainer md-width">
 			<h1>{currentPlayer.name}'s Turn!</h1>
 			<p>
-				{currentPlayer.name}, time to answer questions about{" "}
-				{otherPlayer.name}! Do you know them well enough to get all of
-				the answers correct?!
+				{currentPlayer.name}, time to answer questions about {otherPlayer.name}! Do you know
+				them well enough to get all of the answers correct?!
 			</p>
 
 			<form onSubmit={handleSubmit} autoComplete="off">

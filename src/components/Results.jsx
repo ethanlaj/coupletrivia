@@ -12,11 +12,7 @@ function Results(props) {
 	calculateScore(player2, player1.questions);
 
 	const winner =
-		player1.score > player2.score
-			? player1
-			: player2.score > player1.score
-			? player2
-			: null;
+		player1.score > player2.score ? player1 : player2.score > player1.score ? player2 : null;
 
 	function handleClick() {
 		navigate("/", {
@@ -25,7 +21,7 @@ function Results(props) {
 	}
 
 	return (
-		<div className="beautyContainer w50">
+		<div className="beautyContainer md-width">
 			<div className="my-2 d-flex justify-content-between align-items-center w100">
 				{winner && <h1>{winner.name + " Wins!"}</h1>}
 				{!winner && <h1>{"It's a tie!"}</h1>}

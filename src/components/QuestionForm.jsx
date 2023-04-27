@@ -12,9 +12,7 @@ function QuestionForm(props) {
 	const player2 = location.state.player2;
 	const currentPlayer = player1.questions ? player2 : player1;
 	const otherPlayer = player1.questions ? player1 : player2;
-	const nextLocation = player1.questions
-		? "/play/player1"
-		: "/startGame/player2";
+	const nextLocation = player1.questions ? "/play/player1" : "/startGame/player2";
 
 	const [selectedQuestions, setQuestions] = useState([]);
 	const [category, changeCategory] = useState("");
@@ -24,8 +22,7 @@ function QuestionForm(props) {
 	}, [selectedQuestions]);
 
 	function addQuestion(question, answer) {
-		if (selectedQuestions.length >= 5)
-			return toast.error("Maximum number of questions is 5!");
+		if (selectedQuestions.length >= 5) return toast.error("Maximum number of questions is 5!");
 
 		let newQuestions = [...selectedQuestions];
 		newQuestions.push({ question, answer });
@@ -44,9 +41,7 @@ function QuestionForm(props) {
 		e.preventDefault();
 
 		if (selectedQuestions.length < 5)
-			return toast.error(
-				"You must select 5 questions before continuing!"
-			);
+			return toast.error("You must select 5 questions before continuing!");
 
 		changeCategory("");
 
@@ -63,12 +58,11 @@ function QuestionForm(props) {
 	}
 
 	return (
-		<div className="beautyContainer w50">
+		<div className="beautyContainer md-width">
 			<h1>{currentPlayer.name}'s Turn!</h1>
 			<p>
-				{currentPlayer.name}, pick 5 questions for {otherPlayer.name} to
-				answer about you. Try to challenge them, and don't let them see
-				your answers!
+				{currentPlayer.name}, pick 5 questions for {otherPlayer.name} to answer about you.
+				Try to challenge them, and don't let them see your answers!
 			</p>
 
 			{selectedQuestions.length > 0 && (

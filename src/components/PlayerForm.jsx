@@ -22,14 +22,11 @@ function PlayerForm(props) {
 	function handleSubmit(e) {
 		e.preventDefault();
 
-		if (data.player1.trim().length === 0)
-			return setErrors({ player1: requiredError });
+		if (data.player1.trim().length === 0) return setErrors({ player1: requiredError });
 
-		if (data.player2.trim().length === 0)
-			return setErrors({ player2: requiredError });
+		if (data.player2.trim().length === 0) return setErrors({ player2: requiredError });
 
-		if (data.player1 === data.player2)
-			return setErrors({ player2: sameNameError });
+		if (data.player1 === data.player2) return setErrors({ player2: sameNameError });
 
 		setErrors({});
 
@@ -42,7 +39,7 @@ function PlayerForm(props) {
 	}
 
 	return (
-		<div className="beautyContainer w35">
+		<div className="beautyContainer sm-width">
 			<h1>Player Information</h1>
 			<form onSubmit={handleSubmit}>
 				<InputGroup
