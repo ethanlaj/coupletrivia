@@ -1,0 +1,20 @@
+{
+  "projects": {
+    "default": "dev-portfolio-24c70"
+  },
+  "targets": {
+    "hosting": {
+      "couple-trivia": [
+        "couple-trivia"
+      ]
+    },
+    "dev-portfolio-24c70": {
+      "hosting": {
+        "couple-trivia": [
+          "couple-trivia"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
