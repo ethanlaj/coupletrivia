@@ -15,4 +15,4 @@ jobs:
                   repoToken: "${{ secrets.GITHUB_TOKEN }}"
                   firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_DEV_PORTFOLIO_24C70 }}"
                   projectId: dev-portfolio-24c70
-                  target: couple-trivia
+                  target: coupletrivia

@@ -4,14 +4,14 @@
   },
   "targets": {
     "hosting": {
-      "couple-trivia": [
-        "couple-trivia"
+      "coupletrivia": [
+        "coupletrivia"
       ]
     },
     "dev-portfolio-24c70": {
       "hosting": {
-        "couple-trivia": [
-          "couple-trivia"
+        "coupletrivia": [
+          "coupletrivia"
         ]
       }
     }

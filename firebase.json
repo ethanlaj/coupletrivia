@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "target": "couple-trivia",
+    "target": "coupletrivia",
     "public": "build",
     "ignore": [
       "firebase.json",
